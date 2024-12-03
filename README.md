@@ -1,1 +1,3 @@
-Insight scraper for asktheeu PDF files
+# Insight scrapers
+
+This repository holds scrapers that scrape certain websources into Insight.
