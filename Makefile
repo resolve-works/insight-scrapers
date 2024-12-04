@@ -1,9 +1,9 @@
 
-build:
-	docker build --tag asktheeu .
+docker-build:
+	docker build --tag insight-scrapers .
 
-run-docker:
-	docker run --env-file=.env asktheeu
+docker-run:
+	docker run --env-file=.env insight-scrapers
 
 run:
-	set -a; source ./.env; python ./scrape.py
+	set -a; source ./.env; poetry run python ./scrape.py

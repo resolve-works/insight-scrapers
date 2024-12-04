@@ -352,14 +352,14 @@ files = [
 all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
 
 [[package]]
-name = "insight-client"
-version = "0.3.6"
-description = "Python client and CLI for the insight system"
+name = "insightclient"
+version = "0.3.8"
+description = "Python client and CLI for Insight"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "insight_client-0.3.6-py3-none-any.whl", hash = "sha256:dcac95736edad48ec87139b178c7e9ec21cf54c053abc9a966483bfd5c832192"},
-    {file = "insight_client-0.3.6.tar.gz", hash = "sha256:47bd51c5d3058f3c9b4ee94530f72e267d4397292e1cfeabc1f977702318222a"},
+    {file = "insightclient-0.3.8-py3-none-any.whl", hash = "sha256:cd9530ba46e03d88165045d2e7b9704bde722e4d80f3416c6d4c66654eab4a09"},
+    {file = "insightclient-0.3.8.tar.gz", hash = "sha256:f26fcea0bb95e68184035676f88f014eaa161c5384606a3ac26107c654b008f6"},
 ]
 
 [package.dependencies]
@@ -835,4 +835,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "636304e6d3197b6b0103087131791aecbff4baf04b1cd9444533bc7f97e09977"
+content-hash = "309f95dfca99ce473d5e05a4bc1665dad533cf6ebb020a7b474e42468d79d237"
