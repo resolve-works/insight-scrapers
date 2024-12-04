@@ -353,13 +353,13 @@ all = ["flake8 (>=7.1.1)", "mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2
 
 [[package]]
 name = "insightclient"
-version = "0.3.10"
+version = "0.3.11"
 description = "Python client and CLI for Insight"
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "insightclient-0.3.10-py3-none-any.whl", hash = "sha256:2f77d7e540be104cd52ec21047e66b85c31c8c6b20d1fa98565e30fa9908dc8b"},
-    {file = "insightclient-0.3.10.tar.gz", hash = "sha256:b9a268a68c072570c6d185a3ac20d27a61bb5566ed8895b6c353684e97d7361e"},
+    {file = "insightclient-0.3.11-py3-none-any.whl", hash = "sha256:304da0f5ef73af5de9714e75cba08520b66c1e64199ede471be1ee7694e0e232"},
+    {file = "insightclient-0.3.11.tar.gz", hash = "sha256:efa38410c9032d6c8c646ba91da607ec804488572aa5f9f5a97956aec2bb8aff"},
 ]
 
 [package.dependencies]
