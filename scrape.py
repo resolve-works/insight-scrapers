@@ -1,3 +1,4 @@
+from time import sleep
 import requests
 import logging
 from os.path import splitext
@@ -59,20 +60,26 @@ while id <= last_id:
 
         # Upload PDFs
         for path in attachment_paths:
-            with requests.get(
-                f"https://www.asktheeu.org{path}", stream=True
-            ) as response:
-                response.raise_for_status()
+            try:
+                with requests.get(
+                    f"https://www.asktheeu.org{path}", stream=True
+                ) as response:
+                    response.raise_for_status()
 
-                name = unquote(Path(path).name)
-                num = Path(path).parent.name
-                attachment_name = f"{num} {name}"
-                logging.info(f"Storing {attachment_name}")
+                    name = unquote(Path(path).name)
+                    num = Path(path).parent.name
+                    attachment_name = f"{num} {name}"
+                    logging.info(f"Storing {attachment_name}")
 
-                stream = BytesIO(response.content)
-                size = stream.getbuffer().nbytes
-                insight.create_file(
-                    attachment_name, size, stream, parent["id"], is_public=True
-                )
+                    stream = BytesIO(response.content)
+                    size = stream.getbuffer().nbytes
+                    insight.create_file(
+                        attachment_name, size, stream, parent["id"], is_public=True
+                    )
+                    sleep(1)
+            except requests.exceptions.HTTPError as e:
+                # Could be server does not respond
+                logging.error(e)
 
+    sleep(1)
     id += 1
