@@ -46,19 +46,16 @@ while id <= last_id:
         id += 1
         continue
 
-    logging.info(response.url)
-
     doc = fromstring(response.text)
     name = doc.find('.//div[@class="request-header"]//h1').text
-
+    folder_name = f"{id} - {name}"
     attachment_paths = list(get_attachment_paths(doc))
+    logging.info(f"Processing {folder_name}")
 
     if len(attachment_paths) > 0:
-        logging.info(f"Storing {len(attachment_paths)} attachments")
+        logging.info(f"Found {len(attachment_paths)} attachments")
         # Create insight folder
-        parent = insight.create_folder(
-            f"{id} - {name}", root_inode["id"], is_public=True
-        )
+        parent = insight.create_folder(folder_name, root_inode["id"], is_public=True)
 
         # Upload PDFs
         for path in attachment_paths:
@@ -69,11 +66,13 @@ while id <= last_id:
 
                 name = unquote(Path(path).name)
                 num = Path(path).parent.name
+                attachment_name = f"{num} {name}"
+                logging.info(f"Storing {attachment_name}")
 
                 stream = BytesIO(response.content)
                 size = stream.getbuffer().nbytes
                 insight.create_file(
-                    f"{num} {name}", size, stream, parent["id"], is_public=True
+                    attachment_name, size, stream, parent["id"], is_public=True
                 )
 
     id += 1
