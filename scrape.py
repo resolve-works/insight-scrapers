@@ -1,3 +1,4 @@
+import re
 from time import sleep
 import requests
 import logging
@@ -48,7 +49,9 @@ while id <= last_id:
         continue
 
     doc = fromstring(response.text)
-    name = doc.find('.//div[@class="request-header"]//h1').text
+    title = doc.find('.//div[@class="request-header"]//h1').text
+    # Strip slashes from title
+    name = re.sub(r"[/\\]", "-", title)
     folder_name = f"{id} - {name}"
     attachment_paths = list(get_attachment_paths(doc))
     logging.info(f"Processing {folder_name}")

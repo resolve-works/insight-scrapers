@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "insight_scrapers"
-version = "0.1.0"
+version = "0.0.7"
 description = ""
 authors = ["Johan Schuijt <johan.schuijt@ftm.nl>"]
 readme = "README.md"
