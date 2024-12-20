@@ -5,5 +5,8 @@ docker-build:
 docker-run:
 	docker run --env-file=.env insight-scrapers
 
-run:
-	set -a; source ./.env; poetry run python ./scrape.py
+asktheeu:
+	set -a; source ./.env; poetry run python ./scrapers/asktheeu.py
+
+nl_foia_covid:
+	set -a; source ./.env; poetry run python ./scrapers/nl_foia_covid.py
