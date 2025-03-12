@@ -2,7 +2,7 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY scrape.py ./
+COPY scrapers ./
 COPY pyproject.toml ./
 COPY poetry.lock ./
 
